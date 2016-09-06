@@ -1,7 +1,7 @@
-<img src = "http://avis-vin.lefigaro.fr/var/img/91/22681-650x330-logo-lot18-noir-sur-fond-blanc-ok.jpg" align = "right">
+<img src = "http://avis-vin.lefigaro.fr/var/img/91/22681-650x330-logo-lot18-noir-sur-fond-blanc-ok.jpg" align = "right" height="142" width="142">
 
 # Lot18-Code-Challenge
-A RESTful Web Service for a mock Wine store using Python Flask/
+A RESTful Web Service for a mock Wine store using Python Flask.
 
 Introduction
 =======
@@ -41,7 +41,7 @@ Import a CSV file which contains all the order information.
 
 * **URL**
 
-`/import/
+`/import/`
 
 * **Method:**
 
@@ -55,7 +55,7 @@ Import a CSV file which contains all the order information.
 
 **Optional:**
 
- None
+ `*None*`
 
 * **Success Response:**
 
@@ -129,11 +129,10 @@ Returns the order information for a specific order ID.
 
  `*None*`
  
- `*key*`
 
 **Optional:**
 
- None
+ `*None*`
 
 * **Success Response:**
 
