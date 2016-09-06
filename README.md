@@ -1,4 +1,4 @@
-<img src = "http://avis-vin.lefigaro.fr/var/img/91/22681-650x330-logo-lot18-noir-sur-fond-blanc-ok.jpg" align = "right" height="142" width="142">
+<img src = "http://avis-vin.lefigaro.fr/var/img/91/22681-650x330-logo-lot18-noir-sur-fond-blanc-ok.jpg" align = "right" height="142" width="342">
 
 # Lot18-Code-Challenge
 A RESTful Web Service for a mock Wine store using Python Flask.
@@ -20,13 +20,13 @@ Requirements
 Validation Rules
 =======
 
-1) No wine can ship to New Jersey, Connecticut, Pennsylvania, Massachusetts, Illinois, Idaho or Oregon
-2) Valid zip codes must be 5 or 9 digits
-3) Everyone ordering must be 21 or older
-4) Email address must be valid
-5) The sum of digits in a zip code may not exceed 20 ("90210": 9+0+2+1+0 = 12)
-6) Customers from NY may not have .net email addresses
-7) If the state and zip code of the following record is the same as the current record, it automatically passes.
+* No wine can ship to New Jersey, Connecticut, Pennsylvania, Massachusetts, Illinois, Idaho or Oregon
+*  Valid zip codes must be 5 or 9 digits
+* Everyone ordering must be 21 or older
+*  Email address must be valid
+* The sum of digits in a zip code may not exceed 20 ("90210": 9+0+2+1+0 = 12)
+* Customers from NY may not have .net email addresses
+* If the state and zip code of the following record is the same as the current record, it automatically passes.
 
 API Documentation
 =======
