@@ -16,12 +16,12 @@ Requirements
 
 And the following modules (found in [requirements.txt](https://github.com/vinothkumar6692/Lot18-Code-Challenge/blob/master/requirements.txt)):
 
-  Flask==0.10.1
-  Flask-Testing==0.4.2
-  Flask-WTF==0.12
-  Werkzeug==0.10.4
-  schematics
-  six==1.8.0
+  Flask==0.10.1<br>
+  Flask-Testing==0.4.2<br>
+  Flask-WTF==0.12<br>
+  Werkzeug==0.10.4<br>
+  schematics<br>
+  six==1.8.0<br>
 
 
 Setup
@@ -54,6 +54,7 @@ To test all of the endpoints, run the unit tests in the root directory via:
 ```bash
 $ python tests.py
 ```
+
 Validation Rules
 =======
 
