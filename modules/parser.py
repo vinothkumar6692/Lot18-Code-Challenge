@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+#
+# @Author: Vinoth Kumar
+# @Date:   2016-09-06
+# @Email:  vinothkumar@nyu.edu
+
+#This module is to parse the the csv file received and convert into a standard JSON format for validation
+
 import pprint
 import json
 import csv

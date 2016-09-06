@@ -12,11 +12,48 @@ Acme wines is a mock wine store that delivers wine all over the country. When se
 Requirements
 =======
 
-* Python
-* Python Flask
-* Schematics
-* Six
+* Python 2.7.x 
 
+And the following modules (found in [requirements.txt](https://github.com/vinothkumar6692/Lot18-Code-Challenge/blob/master/requirements.txt)):
+
+  Flask==0.10.1
+  Flask-Testing==0.4.2
+  Flask-WTF==0.12
+  Werkzeug==0.10.4
+  schematics
+  six==1.8.0
+
+
+Setup
+=======
+
+To install the pip modules run:
+
+```bash
+$ sudo python setup.py install
+```
+This will also create a build package.
+
+Then, to run the app on port 5000 (default), type:
+
+```bash
+$ python app.py
+```
+
+Troubleshooting
+=======
+
+If you are having any issues when setting up the application, try and install the requirements manually in your terminal using **pip install <dependency>**
+
+
+Testing
+=======
+
+To test all of the endpoints, run the unit tests in the root directory via:
+
+```bash
+$ python tests.py
+```
 Validation Rules
 =======
 

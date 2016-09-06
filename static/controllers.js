@@ -1,17 +1,12 @@
 App.controller('uploadController', ['$scope','$http','$location',
   function($scope,$http,$location) {
-    console.log("inside");
 
  
 
     $scope.uploadFile = function() {
         var f = document.getElementById('file').files[0]; 
-        console.log("function call");
-        console.log(f);
         var formData = new FormData();
         formData.append('file', f);
-        console.log("FORM DATA:");
-        console.log(formData);
 
         $http({method: 'POST', url: '/import/', data: formData, headers: {'Content-Type': undefined}, transformRequest: angular.identity})
             .success(function(data) {
@@ -45,12 +40,10 @@ App.controller('ordersController', ['$scope','$http','$location',
                 $scope.users = data.result.data
             }
             else{
-                console.log("error");
                 $location.path("/error");
             }
         })
         .error(function(data) {
-            console.log(data);
             $location.path("/error");
         });
 
@@ -65,12 +58,10 @@ App.controller('ordersController', ['$scope','$http','$location',
                     $scope.users = data.result.data
                 }
                 else{
-                    console.log("error");
                     $location.path("/error");
                 }
             })
             .error(function(data) {
-                console.log(data);
                 $location.path("/error");
             }); 
     };
@@ -82,12 +73,10 @@ App.controller('ordersController', ['$scope','$http','$location',
                     $scope.users = data.result.data
                 }
                 else{
-                    console.log("error");
                     $location.path("/error");
                 }
             })
             .error(function(data) {
-                console.log(data);
                 $location.path("/error");
             }); 
     };
@@ -99,11 +88,9 @@ App.controller('orderbyIdController', ['$scope','$http','$location',
   function($scope,$http,$location) {
 
     $scope.getorder = function(){
-        console.log("ordersbyId");
         $http({method: 'GET', url: '/orders/'+$scope.orderid})
 
             .success(function(data) {
-                console.log(data);
                 if (data.result.status == 200) {
                     $scope.user = data.result.data
                     $scope.errormessage = null;
@@ -114,12 +101,10 @@ App.controller('orderbyIdController', ['$scope','$http','$location',
 
                 }
                 else{
-                    console.log("error");
                     $location.path("/error");
                 }
             })
             .error(function(data) {
-                console.log(data);
                 $location.path("/error");
             });
     };

@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+#
+# @Author: Vinoth Kumar
+# @Date:   2016-09-06
+# @Email:  vinothkumar@nyu.edu
+
 from schematics.models import Model
 from schematics.types import StringType, BooleanType
 from schematics.exceptions import ValidationError
@@ -5,6 +11,8 @@ from time import strptime
 import datetime
 from datetime import date
 import re
+
+#This acts as a config file to specify all the rules using Schematics to perform validation.
 
 class Order(Model):
     id = StringType()

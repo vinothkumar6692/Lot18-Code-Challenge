@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+#
+# @Author: Vinoth Kumar
+# @Date:   2016-09-06
+# @Email:  vinothkumar@nyu.edu
+
+
 from flask import Flask, request, jsonify,render_template,url_for,g
 import os 
 from werkzeug import secure_filename
@@ -8,8 +15,6 @@ from modules import order_validator as validator1
 UPLOAD_FOLDER = '/static/uploads/'
 ALLOWED_EXTENSIONS = set(['csv'])
 
-
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -18,6 +23,12 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
+
+########################################################
+## REST ROUTES
+########################################################
+
+#Endpoint to import a csv file to the server
 @app.route('/import/', methods= ['POST']) 
 def upload_file():
     if request.method == 'POST':
@@ -25,17 +36,18 @@ def upload_file():
         if file:
             filename = secure_filename(file.name)
             request.files['file'].save('static/uploads/orders.csv')
-            validates('static/uploads/orders.csv')
+            validate_request('static/uploads/orders.csv')
             return jsonify(result={"status": 200, "message": "uploaded Sucessfully"})
         return jsonify(result={"status": 200, "message":"File Not uploaded"})
 
-def validates(file):
+def validate_request(file):
     global JSONDATA
     JSONDATA = order_parser.parse(file)
     orders = JSONDATA['orders'][::-1]
 
     JSONDATA['orders'] = validator1.validate_orders(orders)
 
+#Endpoint to retreive the orders information
 @app.route('/orders', methods= ['GET'])
 def get_orders():
     global JSONDATA
@@ -63,6 +75,7 @@ def get_orders():
         return jsonify(result={"status": 200, "message": "orders not available"})   
 
 
+#Endpoint to retrieve the information for a specific order
 @app.route('/orders/<orderid>', methods= ['GET'])
 def get_orderbyId(orderid):
     global JSONDATA
@@ -74,6 +87,7 @@ def get_orderbyId(orderid):
     else:
         return jsonify(result={"status": 200, "message": "orders not available"})
 
+#Default Route
 @app.route("/")
 def hello():
 	return render_template("index.html")
