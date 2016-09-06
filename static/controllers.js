@@ -105,7 +105,13 @@ App.controller('orderbyIdController', ['$scope','$http','$location',
             .success(function(data) {
                 console.log(data);
                 if (data.result.status == 200) {
-                    $scope.order = data.result.data
+                    $scope.user = data.result.data
+                    $scope.errormessage = null;
+                    if (data.result.data == null){
+                        $scope.errormessage = "No Orders were found..";
+                    }   
+
+
                 }
                 else{
                     console.log("error");

@@ -1,0 +1,6 @@
+setup.py
+acme_wines.egg-info/PKG-INFO
+acme_wines.egg-info/SOURCES.txt
+acme_wines.egg-info/dependency_links.txt
+acme_wines.egg-info/requires.txt
+acme_wines.egg-info/top_level.txt

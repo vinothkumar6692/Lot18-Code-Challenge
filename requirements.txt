@@ -1,0 +1,7 @@
+Flask==0.10.1
+Flask-Testing==0.4.2
+Flask-WTF==0.12
+Werkzeug==0.10.4
+schematics
+six==1.8.0
+

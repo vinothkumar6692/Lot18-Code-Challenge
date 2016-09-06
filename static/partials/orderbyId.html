@@ -5,36 +5,52 @@
 
 				<form role="form">
 					<div class="col-sm-offset-1 col-sm-9 col-xs-11">
-					
-					<input type="text" name="search" ng-model="orderid" placeholder="Search Users ..." style="width:10%">
+					<center>
+					<input type="text" name="search" ng-model="orderid" placeholder="Search Users ..." style="width:50%">
 					<button ng-click="getorder()"> Search</button>
-
+					<p>{{errormessage}}</p>
+					</center>
 					<br><br>
 
 					</div>
-
-		            <table class="table table-condensed table-hover table-responsive">
+					<table class="table table-condensed table-hover table-responsive">
 		               <thead>
 		                <tr>
 		                  <th>Order Id</th>
-		                  <th>Last Name</th>
+		                  <th>Name</th>
 		                  <th>Email</th>
-		                  <th>Address</th>
-		                  <th>Company</th>
+		                  <th>State</th>
+		                  <th>Zipcode</th>
+		                  <th>birthday</th>
+		                  <th>Year</th>
+		                  <th>Valid</th>
+		                  <th width="30%">Errors</th>
 
 		                </tr>
 		              </thead>
 		              <tbody>
-		                <tr>
-		                <td>{{order.id}} 
+		                <tr> 
+		                <td>{{user.id}} 
 		                </td>
-		                <td>{{order.name}}
+		                <td>{{user.name}}
 		                </td>
-		                <td>{{order.email}}
-		                </td>                  
-		                <td>{{order.errors[0].message}}  - {{order.errors[0].rule}}   
+		                <td>{{user.email}}
+		                </td>   
+		                <td>{{user.state}}               
 		                </td>
-		                <td>{{order.valid}}
+		                <td>{{user.zipcode}}
+		                </td>
+		                <td>{{user.birthday}}
+		                </td>
+		                <td>{{user.year}}
+		                </td>
+		                <td>{{user.valid}}
+		                </td>		                
+		                <td>
+			                <ul data-ng-repeat="errorlist in user.errors">
+								<li> {{errorlist.message}} - {{errorlist.rule}} </li>
+							</ul>		                
+		                </td>
 		              </tr>
 		              </tbody>
 		            </table>
