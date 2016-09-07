@@ -190,19 +190,19 @@ Returns the order information for a specific order ID.
 Screenshots
 =======
 
-**Server Started**
+##**Server Started**##
 <img src = "https://s11.postimg.org/s1vuqsa5v/Screen_Shot_2016_09_07_at_12_52_23_AM.png" align = "right">
-
-**Home Page -  Upload the CSV File**
+<br><br>
+##**Home Page -  Upload the CSV File**##
 <img src = "https://s13.postimg.org/3le3s866v/Screen_Shot_2016_09_07_at_12_53_29_AM.png" align = "right">
-
-**Display all order information**
+<br><br>
+##**Display all order information**##
 <img src = "https://s13.postimg.org/lc8v8eqcn/Screen_Shot_2016_09_07_at_12_53_40_AM.png" align = "right">
-
-**Filter orders by Validity**
+<br><br>
+##**Filter orders by Validity**##
 <img src = "https://s17.postimg.org/4tmv9vrnj/Screen_Shot_2016_09_07_at_12_54_21_AM.png" align = "right">
-
-**Filter orders using the search feature**
+<br><br>
+##**Filter orders using the search feature**##
 <img src = "https://s17.postimg.org/3zuewjib3/Screen_Shot_2016_09_07_at_12_54_35_AM.png" align = "right">
 
 
