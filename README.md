@@ -40,10 +40,15 @@ Then, to run the app on port 5000 (default), type:
 $ python app.py
 ```
 
+Now, you can access the homepage for the application by opening the link below in your browser. 
+```bash
+http://localhost:5000/
+```
+
 Troubleshooting
 =======
 
-If you are having any issues when setting up the application, try and install the requirements manually in your terminal using **pip install *dependency* **
+If you are having any issues when setting up the application, try and install the requirements manually in your terminal using ####pip install **dependency** ####
 
 
 Testing
