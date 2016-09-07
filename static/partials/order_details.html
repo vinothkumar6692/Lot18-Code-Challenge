@@ -1,0 +1,54 @@
+<section>
+	<div class="container">
+		<div>
+			<h1> Specific Order Details</h1>
+
+				<form role="form">
+					<div class="col-sm-offset-1 col-sm-9 col-xs-11">
+					</div>
+					<table class="table table-condensed table-hover table-responsive">
+		               <thead>
+		                <tr>
+		                  <th>Order Id</th>
+		                  <th>Name</th>
+		                  <th>Email</th>
+		                  <th>State</th>
+		                  <th>Zipcode</th>
+		                  <th>birthday</th>
+		                  <th>Year</th>
+		                  <th>Valid</th>
+		                  <th width="30%">Errors</th>
+
+		                </tr>
+		              </thead>
+		              <tbody>
+		                <tr> 
+		                <td>{{user.id}} 
+		                </td>
+		                <td>{{user.name}}
+		                </td>
+		                <td>{{user.email}}
+		                </td>   
+		                <td>{{user.state}}               
+		                </td>
+		                <td>{{user.zipcode}}
+		                </td>
+		                <td>{{user.birthday}}
+		                </td>
+		                <td>{{user.year}}
+		                </td>
+		                <td>{{user.valid}}
+		                </td>		                
+		                <td>
+			                <ul data-ng-repeat="errorlist in user.errors">
+								<li> {{errorlist.message}} - {{errorlist.rule}} </li>
+							</ul>		                
+		                </td>
+		              </tr>
+		              </tbody>
+		            </table>
+		        </form>
+
+		</div>
+	</div>
+</section>

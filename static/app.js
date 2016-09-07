@@ -20,10 +20,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'static/partials/orderbyId.html',
     controller: "orderbyIdController"
   })    
-  .otherwise({
-    redirectTo: '/'
+  .when('/orderdetails/:id', {
+    templateUrl: 'static/partials/order_details.html',
+    controller: "orderdetailController"
   });
 }]);   
 
 var App = angular.module('App',[]);
-

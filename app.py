@@ -47,7 +47,7 @@ def validate_request(file):
 
     JSONDATA['orders'] = validator1.validate_orders(orders)
 
-#Endpoint to retreive the orders information
+#Endpoint to retrieve information on all orders. Returns order id, name and validity.
 @app.route('/orders', methods= ['GET'])
 def get_orders():
     global JSONDATA
@@ -58,17 +58,19 @@ def get_orders():
             if valid == '1':
                 for order in JSONDATA['orders']:
                     if order['valid'] == 1:
-                        newdata.append(order)
+                        newdata.append({'id': order['id'],'name': order['name']})
                 return jsonify(result={"status": 200, "message": "data sent", "data":newdata})
             elif valid == '0':
                 for order in JSONDATA['orders']:
                     if order['valid'] == 0:
-                        newdata.append(order)
+                        newdata.append({'id': order['id'],'name': order['name']})
                 return jsonify(result={"status": 200, "message": "data sent", "data":newdata})
             else:
                 return jsonify(result={"status": 200, "message": "Invalid option"})
         elif not request.args:
-            return jsonify(result={"status": 200, "message": "data sent", "data":JSONDATA['orders']})
+            for order in JSONDATA['orders']:
+                newdata.append({'id': order['id'],'name': order['name'],'valid': order['valid']})
+            return jsonify(result={"status": 200, "message": "data sent", "data":newdata})
         else:
             return jsonify(result={"status": 200, "message": "invalid"})   
     else:

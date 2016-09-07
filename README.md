@@ -43,7 +43,7 @@ $ python app.py
 Troubleshooting
 =======
 
-If you are having any issues when setting up the application, try and install the requirements manually in your terminal using **pip install <dependency>**
+If you are having any issues when setting up the application, try and install the requirements manually in your terminal using **pip install *dependency* **
 
 
 Testing
@@ -155,7 +155,7 @@ Returns the order information for a specific order ID.
 
 * **URL**
 
-`/catalog/<order_id>/`
+`/orders/<order_id>/`
 
 * **Method:**
 

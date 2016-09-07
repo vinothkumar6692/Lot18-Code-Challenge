@@ -1,8 +1,5 @@
 App.controller('uploadController', ['$scope','$http','$location',
   function($scope,$http,$location) {
-
- 
-
     $scope.uploadFile = function() {
         var f = document.getElementById('file').files[0]; 
         var formData = new FormData();
@@ -10,13 +7,10 @@ App.controller('uploadController', ['$scope','$http','$location',
 
         $http({method: 'POST', url: '/import/', data: formData, headers: {'Content-Type': undefined}, transformRequest: angular.identity})
             .success(function(data) {
-                console.log(data);
                 if (data.result.status == 200){
-                    console.log("done");
                     $location.path("/orders");
                 }
                 else{
-                    console.log("error");
                     $location.path("/errors");
                 }
 
@@ -24,29 +18,29 @@ App.controller('uploadController', ['$scope','$http','$location',
             .error(function(data) {
                 $location.path("/errors");
             });
-        }; 
-
-        
+        };        
 
  }]);
 
 App.controller('ordersController', ['$scope','$http','$location',
   function($scope,$http,$location) {
-
-    console.log("orders");
-    $http({method: 'GET', url: '/orders'})
-        .success(function(data) {
-            if (data.result.status == 200) {
-                $scope.users = data.result.data
-            }
-            else{
+    
+    $scope.orders = function(){
+        $http({method: 'GET', url: '/orders'})
+            .success(function(data) {
+                if (data.result.status == 200) {
+                    $scope.users = data.result.data;
+                    $scope.type = 'all';
+                }
+                else{
+                    $location.path("/error");
+                }
+            })
+            .error(function(data) {
                 $location.path("/error");
-            }
-        })
-        .error(function(data) {
-            $location.path("/error");
-        });
-
+            });
+    };
+    $scope.orders();
     $scope.navigate = function (){
         $location.url('/orderbyId');
     };
@@ -55,7 +49,8 @@ App.controller('ordersController', ['$scope','$http','$location',
         $http({method: 'GET', url: '/orders?valid=1'})
             .success(function(data) {
                 if (data.result.status == 200) {
-                    $scope.users = data.result.data
+                    $scope.users = data.result.data;
+                    $scope.type = 'valid';
                 }
                 else{
                     $location.path("/error");
@@ -70,7 +65,8 @@ App.controller('ordersController', ['$scope','$http','$location',
         $http({method: 'GET', url: '/orders?valid=0'})
             .success(function(data) {
                 if (data.result.status == 200) {
-                    $scope.users = data.result.data
+                    $scope.users = data.result.data;
+                    $scope.type = 'valid';
                 }
                 else{
                     $location.path("/error");
@@ -79,6 +75,9 @@ App.controller('ordersController', ['$scope','$http','$location',
             .error(function(data) {
                 $location.path("/error");
             }); 
+    };
+    $scope.detail = function(id){
+        $location.path("/orderdetails/"+id);
     };
 
  }]);
@@ -110,5 +109,33 @@ App.controller('orderbyIdController', ['$scope','$http','$location',
     };
       
  }]);
+
+App.controller('orderdetailController', ['$scope','$http','$location','$routeParams',
+  function($scope,$http,$location,$routeParams) {
+
+    $scope.id = $routeParams.id
+
+    $http({method: 'GET', url: '/orders/'+$scope.id})
+
+        .success(function(data) {
+            if (data.result.status == 200) {
+                $scope.user = data.result.data
+                $scope.errormessage = null;
+                if (data.result.data == null){
+                    $scope.errormessage = "No Orders were found..";
+                }   
+
+
+            }
+            else{
+                $location.path("/error");
+            }
+        })
+        .error(function(data) {
+            $location.path("/error");
+        });
+      
+ }]);
+
 
 
