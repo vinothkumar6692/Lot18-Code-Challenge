@@ -63,7 +63,13 @@ $ pip install Schematics
 Testing
 =======
 
-To test all of the endpoints, run the unit tests in the root directory via:
+To test all of the endpoints, start the server using 
+
+```bash
+$ python app.py
+```
+
+Now, run the tests in the root directory via:
 
 ```bash
 $ python tests.py
